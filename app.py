@@ -13,9 +13,6 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = 'jose'
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-	db.create_all()
 
 jwt = JWT(app, authenticate, identity)  # create a subdirectory /auth  
 
@@ -28,7 +25,7 @@ api.add_resource(ItemList, '/items')
 api.add_resource(UserRegister, '/register')
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  #only run when type python app.py, not running with uwsgi. 
 	from db import db
 	db.init_app(app)
 	app.run(port = 5000, debug = True)
