@@ -46,7 +46,7 @@ class Item(Resource):
 		except:
 			return {"message": 'An error occurred inserting the item.'}
 		
-		return item, 201   #201 created, 202 accepted, 200 OK. 
+		return item.json(), 201   #201 created, 202 accepted, 200 OK. 
 
 
 				
