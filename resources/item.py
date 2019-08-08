@@ -42,7 +42,7 @@ class Item(Resource):
 		item = ItemModel(name, **data) #data['price'], data['store_id'])
 		
 		try:
-			item.save_to_db(item)
+			item.save_to_db()
 		except:
 			return {"message": 'An error occurred inserting the item.'}
 		
